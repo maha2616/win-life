@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buy PDF</title>
+</head>
+<body>
+
+<h2>Buy PDF – ₹1</h2>
+<button id="payBtn">Pay Now</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById("payBtn").onclick = function () {
+  var options = {
+    "key": "rzp_live_SABHj6CooppNSZ",   // 👈 unga TEST KEY
+    "amount": 100,
+    "currency": "INR",
+    "name": "My Website",
+    "description": "PDF Download",
+    "handler": function (response){
+      window.location.href = "success.html";
+    }
+  };
+  var rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
+
+</body>
+</html>
